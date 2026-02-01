@@ -20,7 +20,7 @@ const AnimePageBody = () => {
             <section className={style.halfs}>
                 <img src={img1} alt="" />
             </section>
-            <section className={style.halfs}>
+            <section className={`${style.halfs} ${style.rightHalf}`}>
                 <div className={style.title}>Название</div>
                 <ul className={style.info}>
                     {specification.map((el:{lable: string,data: string}) => 
@@ -28,7 +28,7 @@ const AnimePageBody = () => {
                         {el.lable}: {el.data}
                     </li>)}
                 </ul>
-                <div className="">
+                <div className={style.buttonSection}>
                     <MyButton content='⏵ Смотреть онлайн' as='button' onClick={()=>console.log('asdsa')} className={style.APBbutton} />
                     <MyButton content='♥ Добавить в избранное' className={style.APBbuttonsec} />
                 </div>

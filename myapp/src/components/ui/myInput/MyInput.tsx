@@ -10,7 +10,7 @@ export const MyInput = forwardRef<HTMLInputElement, CustomInputProps>(
   ({ className, leftIcon, error, ...props }, ref) => {
     return (
       <>
-      <div style={{position:'absolute',left:'20px',top:'20px', pointerEvents:'none'}} >{leftIcon}</div>
+      <div style={{position:'absolute',left:'8.5vw',top:'30px', pointerEvents:'none'}} >{leftIcon}</div>
         <input
        
         ref={ref}
