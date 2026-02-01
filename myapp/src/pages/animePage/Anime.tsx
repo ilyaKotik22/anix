@@ -2,7 +2,7 @@ import AnimePageBody from "@/pages/animePage/components/AinmePageBody";
 
 const Anime = () => {
     return ( 
-        <main>
+        <main style={{padding: '20px',marginTop:'40px'}}>
             <AnimePageBody/>
         </main> );
 }

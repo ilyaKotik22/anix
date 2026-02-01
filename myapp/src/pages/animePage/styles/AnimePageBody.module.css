@@ -1,0 +1,43 @@
+.animeBody{
+    display: block;
+    
+}
+.animeBody .halfs{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.animeBody .halfs div{
+    text-align: center;
+}
+.animeBody .halfs .desc{
+    text-align: left;
+}
+.animeBody .halfs .title{
+    font-size: 24px;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+.animeBody .halfs .info{
+    
+}
+.animeBody .halfs ul{
+    width: 100%;
+}
+.animeBody .halfs ul li{
+    padding: 8px 10px;
+}
+.animeBody .halfs ul li:nth-child(even){
+    background-color: var(--surface);
+}
+
+.APBbutton{
+    width: 100%;
+
+}
+.APBbuttonsec{
+    width: 100%;
+    background-color: var(--button-second-color);
+    border-color: var(--button-second-color);
+}
