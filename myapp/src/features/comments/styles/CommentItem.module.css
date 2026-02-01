@@ -1,0 +1,33 @@
+.CommentsItem{
+    margin-top: 40px;
+}
+.CommentsItem .CommContent{
+    margin-top: 5px;
+}
+.CommentsItem .ListTitle{
+    font-weight: bold;
+    font-size: 16px;
+}
+.CommentsItem .CommentsItemHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.CommentsItem .CommentsItemHeader .profile{
+    display: flex;
+    gap: 15px;
+    font-weight: bold;
+}
+.CommentsItem .CommentsItemHeader .profile .data{
+    font-size: 12px;
+    font-weight: 300;
+
+}
+.CommentsItem .CommentsItemHeader .profile img{
+    width: 40px;
+    height: 40px;
+}
+.CommentsItem .CommentsItemHeader .likes{
+    display: flex;
+    gap: 5px;
+}

@@ -1,19 +1,14 @@
 .AnimeCard {
-    display: flex;
+    
+    width: 150px;
+
 }   
-.AnimeCard section {
-    padding: 5px 15px;
-}
 .AnimeCard .imgSection{
-    width: 30%;
+    width: 150px;
+    height: 200px;
+    
 }
-.AnimeCard .infoSection{
-    width: 70%;
-}
-.AnimeCard .infoSection h2{
-    font-size: 16px;
-}
-.AnimeCard .infoSection div{
-    color: var(--text-secondary);
-    font-size: 12px;
+.AnimeCard .imgSection img{
+    width: 100%;
+    height: 100%;
 }

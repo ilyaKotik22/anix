@@ -1,5 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import style from './header.module.css'
+import { MyInput } from '@/components/ui/myInput/MyInput';
+import SearchInput from '@/features/searchInput/SearcInput';
 const Header = () => {
     const location = useLocation()
     console.log(location)
@@ -15,8 +17,7 @@ const Header = () => {
         <header>
             <section className={style.sec}>
              
-                    <input type="text" />
-               
+                    <SearchInput/>
                 
                 <section className={style.rightBar}>
                     <div className="">нст</div>
