@@ -7,6 +7,24 @@ const AnimeList = () => {
             <AnimeCard
                 name='SDASA'
                 description='DSA AS SASADKSAKD BASDB SAKKD SA KASKDASSA'/>
+                <AnimeCard
+                name='SDASA'
+                description='DSA AS SASADKSAKD BASDB SAKKD SA KASKDASSA'/>
+                <AnimeCard
+                name='SDASA'
+                description='DSA AS SASADKSAKD BASDB SAKKD SA KASKDASSA'/>
+                <AnimeCard
+                name='SDASA'
+                description='DSA AS SASADKSAKD BASDB SAKKD SA KASKDASSA'/>
+                <AnimeCard
+                name='SDASA'
+                description='DSA AS SASADKSAKD BASDB SAKKD SA KASKDASSA'/>
+                <AnimeCard
+                name='SDASA'
+                description='DSA AS SASADKSAKD BASDB SAKKD SA KASKDASSA'/>
+                <AnimeCard
+                name='SDASA'
+                description='DSA AS SASADKSAKD BASDB SAKKD SA KASKDASSA'/>
         </ul> );
 }
  
