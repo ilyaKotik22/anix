@@ -1,6 +1,7 @@
 .CommentsList{
     background-color: var(--surface);
     padding: 20px;
+    margin-top: 50px;
 }
 
 .CommentsList .ListTitle{
@@ -8,4 +9,9 @@
     font-weight: bold;
     padding-top: 20px;
 
+}
+@media (min-width: 1024px) {
+  .CommentsList {
+    padding: 20px 7vw;
+  }
 }

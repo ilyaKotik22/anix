@@ -1,4 +1,5 @@
 .animeBody{
+    width: 100%;
     display: block;
     padding: 60px 20px 60px 20px;
     
@@ -43,4 +44,33 @@
     width: 100%;
     background-color: var(--button-second-color);
     border-color: var(--button-second-color);
+}
+.buttonSection{
+    display: block;
+}
+@media (min-width: 1024px) {
+  .animeBody{
+    padding: 0 7vw;
+    display: flex;
+  }
+  .animeBody .halfs{
+    max-width: 2000px;
+    width: 30vw;
+  }
+  .animeBody .halfs img{
+    width: 300px;
+    height: 400px;
+
+  }
+  .buttonSection{
+    display: flex;
+    width: 100%;
+    gap: 15px;
+  }
+  .animeBody .rightHalf{
+    width: 80vw;
+  }
+  .animeBody .halfs .title{
+    text-align: left;
+  }
 }
