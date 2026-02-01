@@ -1,0 +1,49 @@
+header{
+    font-weight: bold;
+    padding: 5px 0;
+    background-color: var(--surface);
+}
+header .sec{
+    display: flex;
+    justify-content: space-between;
+}
+header .sec ul{
+    margin-top: 10px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    gap: 10px;
+    
+}
+header .sec ul li {
+    white-space: nowrap ;
+    width: max-content;
+    margin: 0 10px;
+    padding: 5px 0;
+    cursor: pointer;
+}
+header .sec ul li .link{
+    color: var(--text-muted);
+}
+header .sec ul li .linkPick{
+    color: var(--text-primary);
+}
+header .sec input{
+    width: 100%;
+    margin-left: 10px;
+}
+header .sec .rightBar{
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    gap: 10px;
+
+}
+input {
+    height: 35px;
+    border-radius: 10px;
+    border-color: var(--surface-hover);
+    background-color: var(--background);
+}
