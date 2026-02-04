@@ -1,6 +1,6 @@
 import { getAnimeList } from "@/api/getAnimeList";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
+
 
 
 export const useSeacrh = (item: string) => {
@@ -11,6 +11,6 @@ export const useSeacrh = (item: string) => {
     select: (data) => data?.data.results,
     gcTime: 50,
   });
-
+  console.log(data)
   return { data, isLoading, isSuccess, isError };
 };
