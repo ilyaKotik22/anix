@@ -1,5 +1,9 @@
+import AnimeList from "@/components/shared/animeList/AnimeList";
+import { useGetAnimeList } from "@/hooks/useGetAnimeList";
+
 const LatestComplete = () => {
-    return ( <></> );
+    const { data } = useGetAnimeList("");
+    return ( <main><AnimeList data={data || []} /></main> );
 }
  
 export default LatestComplete;
