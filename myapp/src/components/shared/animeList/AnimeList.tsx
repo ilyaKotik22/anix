@@ -57,7 +57,6 @@ const skeletonList = [
   </div>,
 ];
 const AnimeList = ({ data }: AnimeList) => {
-  console.log(data.length == 0 ? "пусто" : "массив");
   return (
     <>
       {data.length != 0 ? (

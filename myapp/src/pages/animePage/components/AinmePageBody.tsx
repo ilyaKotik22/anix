@@ -1,33 +1,58 @@
 import MyButton from "@/components/ui/myButton/MyButton";
 import img1 from "../../../../public/images.png";
 import style from "../styles/AnimePageBody.module.css";
-const AnimePageBody = () => {
+import type { AnimeInfo } from "@/types/anime";
+import type { ReactElement } from "react";
+import MySkeleton from "@/components/ui/mySkeleton/Skeleton";
+
+const AnimePageBody = ({
+  id,
+  title,
+  url,
+  image,
+  description,
+  genres,
+  subOrDub,
+  type,
+  status,
+  otherName,
+  totalEpisodes,
+  episodes,
+}: AnimeInfo) => {
   const specification = [
-    { lable: "Год выхода", data: "" },
-    { lable: "Время", data: "" },
-    { lable: "Режиссёр", data: "" },
-    { lable: "Рейтинг аниме", data: "" },
-    { lable: "Жанр", data: "" },
-    { lable: "Просмотров", data: "" },
-    { lable: "Статус", data: "" },
-    { lable: "Первоисточник", data: "" },
-    { lable: "Студия", data: "" },
-    { lable: "Тип перевода", data: "" },
-    { lable: "Озвучка от", data: "" },
+    { lable: "Всего эпизодов", data: totalEpisodes  },
+    { lable: "Режиссёр", data: subOrDub },
+    { lable: "Другое название", data: otherName || 'sad'},
+    // { lable: "Жанр", data: genres?.map(el=> <div>{el}</div>) },
+    { lable: "Статус", data: status },
+    { lable: "тип", data: type  },
   ];
+
   return (
     <section className={style.animeBody}>
       <section className={style.halfs}>
-        <img src={img1} alt="" />
+        <img src={image} alt="" />
       </section>
       <section className={`${style.halfs} ${style.rightHalf}`}>
-        <div className={style.title}>Название</div>
+        <div className={style.title}>{title || <MySkeleton/>}</div>
         <ul className={style.info}>
-          {specification.map((el: { lable: string; data: string }) => (
-            <li key={el.lable}>
-              {el.lable}: {el.data}
-            </li>
+          {genres?.map((el) => (
+            <ul>
+              {el.split("   ").map((ell) => (
+                <li>{ell}</li>
+              ))}
+            </ul>
           ))}
+          {specification.map(
+            (el: {
+              lable: string;
+              data: string | undefined | ReactElement[] | number;
+            }) => (
+              <li key={el.lable}>
+                {el.lable}: {el.data || <MySkeleton/>}
+              </li>
+            ),
+          )}
         </ul>
         <div className={style.buttonSection}>
           <MyButton
@@ -43,17 +68,7 @@ const AnimePageBody = () => {
         </div>
 
         <div className={style.title}>Описание</div>
-        <div className={style.desc}>
-          Если люди встречаются друг с другом, то это явно было предначертано
-          судьбой. Впрочем, для чего это было задумано? Зритель снова насладится
-          обществом хорошо знакомых ему Лоуренса, который является чем-то вроде
-          передвижной торговой лавки, и его давней подруги Хорошо – волчицы
-          небесного происхождения. Прошёл год с момента ухода двух главных
-          персонажей из деревни, однако до окончательного места дислокации ещё
-          идти и идти. Впрочем, такое ощущение, что и Лоуренсу, и Хорошо это
-          даже выгодно, т.к. они с каждым разом улучшают своё взаимодействие и,
-          конечно же, на этом пути они точно не заскучают.{" "}
-        </div>
+        <div className={style.desc }>{description || <MySkeleton/>}</div>
       </section>
     </section>
   );
