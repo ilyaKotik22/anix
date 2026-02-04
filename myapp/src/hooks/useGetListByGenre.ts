@@ -9,14 +9,11 @@ export const useGetListByGenre = () => {
     const genre = location.pathname.split('/')[2]
     
     const {data, isLoading, isSuccess, isError} = useQuery({
-        queryKey:[`ListByGenre-${genre}`],
+        queryKey:[`ListByGenre`,genre],
         queryFn: ()=> getListByGenre<AnimeCardType[]>(genre),
         select: (data) => data?.data.results,
-        gcTime: 30000,
+        gcTime: 2000,
     })
-    useEffect(()=>{
-        console.log(genre)
-        return 
-    }, [location])
+    
     return {data, isLoading, isSuccess, isError}
 }

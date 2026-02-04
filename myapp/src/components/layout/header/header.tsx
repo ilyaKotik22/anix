@@ -3,14 +3,14 @@ import style from "./header.module.css";
 import SearchInput from "@/features/searchInput/components/SearcInput";
 import MyButton from "@/components/ui/myButton/MyButton";
 import { useEffect, useState } from "react";
-import DropdownMenu from "./dropdowmMenu/DropDownMenu";
+import DropdownMenu from "./dropdowmMenu/DropdownMenu";
 import { useGetGenreList } from "@/hooks/useGetGenreList";
 
 const Header = () => {
   const location = useLocation();
   const {data} = useGetGenreList()
   const [vis,setVis] = useState<boolean>(false)
-  // console.log(location);
+
   useEffect(() => {}, [location]);
   const navigation = [
     { label: "Моя вкладка", path: "/mytabs" },
@@ -51,7 +51,7 @@ const Header = () => {
           <div className={style.logo}>logo</div>
         </section>
       </header>
-      <DropdownMenu visibule={vis} data={data as string[] || []}/>
+      <DropdownMenu action={()=>setVis(e=>!e)} visibule={vis} data={data as string[] || []}/>
     </>
   );
 };

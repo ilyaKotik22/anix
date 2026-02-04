@@ -10,12 +10,18 @@
 
 }
 .list li{
+    color: white;
     font-size: 12px;
     width: 80vw !important;
     display: flex;
     align-items: center;
     padding: 5px 15px;
-    flex-wrap: wrap;
+}
+.list li a{
+    align-items: center;
+    display: flex;
+    color: white;
+    width: max-content;
 }
 .list li img{
     margin-right: 10px;
