@@ -18,8 +18,10 @@
     width: 25%;
     cursor: pointer;
 }
-
-.vis li a{
+.vis li:hover{
+    font-weight: bold;
+}
+.vis li .link{
     color: white;
 }
 .unVis{

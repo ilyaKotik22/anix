@@ -1,8 +1,33 @@
 .AnimeCard {
+    transition: 200ms;
     color: white;
     width: 150px;
+    position: relative;
+    margin-bottom: 20px;
 
-}   
+}  
+.AnimeCard:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,           /* сверху прозрачно */
+    rgba(0, 0, 0, 0.4) 70%,    /* начинается затемнение */
+    rgba(0, 0, 0, 0.85) 100%   /* внизу почти чёрный */
+  );
+  pointer-events: none;         /* чтобы клики проходили сквозь слой */
+}
+.AnimeCard:hover {
+    color: var(--button-color);
+
+}  
+.AnimeCard .infoSection{
+    z-index: 30;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
 .AnimeCard .imgSection{
     width: 150px;
     height: 200px;

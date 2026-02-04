@@ -70,6 +70,12 @@ const AnimePageBody = ({
         <div className={style.title}>Описание</div>
         <div className={style.desc }>{description || <MySkeleton/>}</div>
       </section>
+      <section>
+        <ul>
+          
+        </ul>
+        
+      </section>
     </section>
   );
 };

@@ -86,7 +86,7 @@ const AnimeList = ({ data }: AnimeList) => {
         </div>
       )}
 
-      <div className="">skel</div>
+     
     </>
   );
 };
