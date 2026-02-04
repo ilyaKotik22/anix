@@ -7,7 +7,8 @@ import DropdownSearch from "./dropdownSearch";
 const SearchInput = () => {
   const [text, setText] = useState<string>("");
   const { data, isLoading, isSuccess, isError } = useSeacrh(text);
-  console.log(data)
+
+  
   return (
     <section style={{ width: "100%" }}>
       <MyInput

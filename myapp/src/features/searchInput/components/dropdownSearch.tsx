@@ -8,7 +8,7 @@ const DropdownSearch = ({data}:DropdownSearch) => {
     
     return ( 
     <ul className={style.list}>
-        {data.map((el:AnimeCardType) => <li>{el.title}</li>)}
+        {data.map((el:AnimeCardType) => <li> <img src={el.image} alt="" />{el.title}</li>)}
     </ul> );
 }
  
