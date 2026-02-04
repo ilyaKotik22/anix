@@ -1,5 +1,6 @@
 
 import Anime from "@/pages/animePage/Anime"
+import GenrePage from "@/pages/genre/GenrePage"
 import Home from "@/pages/home/home"
 import LatestComplete from "@/pages/latestComplete/LatestComplete"
 import Movies from "@/pages/movies/movies"
@@ -12,11 +13,13 @@ export const PATHNAMES = {
     home: '/',
     movies: '/movies',
     myTab: '/mytab',
-    animePage: (el:string)=> `animepage/:${el}`,
+    animePage: (el:string)=> `animepage/${el}`,
+    genrePage: (el:string) => `genre/${el}`,
     newReleases: '/new-releases',
     latestCompleted: '/latest-completed',
     ova: '/ova',
     ona: '/ona',
+    search: '/seacrh'
 
 }
 
@@ -34,8 +37,12 @@ export const ROUTES = [
         component: <MyTab/>,
     },
     {
-        pathname: PATHNAMES.animePage('id'),
+        pathname: '/animepage/:id',
         component: <Anime/>,
+    },
+    {
+        pathname: '/genre/:genre',
+        component: <GenrePage/>,
     },
 
     {
@@ -54,4 +61,5 @@ export const ROUTES = [
         pathname: PATHNAMES.ona,
         component: <Ona/>
     },
+    
 ]

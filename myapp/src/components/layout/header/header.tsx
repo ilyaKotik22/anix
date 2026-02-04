@@ -1,12 +1,17 @@
 import { Link, useLocation } from "react-router-dom";
 import style from "./header.module.css";
-import SearchInput from "@/features/searchInput/SearcInput";
+import SearchInput from "@/features/searchInput/components/SearcInput";
 import MyButton from "@/components/ui/myButton/MyButton";
+import { useEffect, useState } from "react";
+import DropdownMenu from "./dropdowmMenu/DropDownMenu";
+import { useGetGenreList } from "@/hooks/useGetGenreList";
 
 const Header = () => {
   const location = useLocation();
-  console.log(location);
-
+  const {data} = useGetGenreList()
+  const [vis,setVis] = useState<boolean>(false)
+  // console.log(location);
+  useEffect(() => {}, [location]);
   const navigation = [
     { label: "Моя вкладка", path: "/mytabs" },
     { label: "Недавнее", path: "/" }, //recent-added
@@ -17,33 +22,37 @@ const Header = () => {
     { label: "Фильмы", path: "/movies" },
   ];
   return (
-    <header>
-      <section className={style.sec}>
-        <SearchInput />
+    <>
+      <header>
+        <section className={style.sec}>
+          <SearchInput />
 
-        <section className={style.rightBar}>
-          <div className="">нст</div>
-          <MyButton content="Войти" />
+          <section className={style.rightBar}>
+            <div className="">нст</div>
+            <MyButton content="Войти" />
+          </section>
         </section>
-      </section>
-      <section className={style.sec}>
-        <ul>
-          {navigation.map((el) => (
-            <li key={el.label}>
-              <Link
-                className={
-                  location.pathname === el.path ? style.linkPick : style.link
-                }
-                to={el.path}
-              >
-                {el.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className={style.logo}>logo</div>
-      </section>
-    </header>
+        <section className={style.sec}>
+          <ul>
+            <li className={`${vis ? style.linkPick : style.link}`} onClick={()=>setVis((el)=> !el)}>Каталог</li>
+            {navigation.map((el) => (
+              <li key={el.label}>
+                <Link
+                  className={
+                    location.pathname === el.path ? style.linkPick : style.link
+                  }
+                  to={el.path}
+                >
+                  {el.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className={style.logo}>logo</div>
+        </section>
+      </header>
+      <DropdownMenu visibule={vis} data={data as string[] || []}/>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 header{
-
+    z-index: 300;
     width: 100vw;
     position: fixed;
     font-weight: bold;
@@ -32,10 +32,10 @@ header .sec ul li {
     padding: 5px 0;
     cursor: pointer;
 }
-header .sec ul li .link{
+header .sec ul .link{
     color: var(--text-muted);
 }
-header .sec ul li .linkPick{
+header .sec ul .linkPick{
     color: var(--text-primary);
 }
 header .sec input{
