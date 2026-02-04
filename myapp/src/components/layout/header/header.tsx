@@ -5,6 +5,7 @@ import MyButton from "@/components/ui/myButton/MyButton";
 import { useEffect, useState } from "react";
 import DropdownMenu from "./dropdowmMenu/DropdownMenu";
 import { useGetGenreList } from "@/hooks/useGetGenreList";
+import { Settings } from "lucide-react";
 
 const Header = () => {
   const location = useLocation();
@@ -28,7 +29,7 @@ const Header = () => {
           <SearchInput />
 
           <section className={style.rightBar}>
-            <div className="">нст</div>
+            <div className=""><Settings style={{minWidth:'45px'}} width={45} /></div>
             <MyButton content="Войти" />
           </section>
         </section>

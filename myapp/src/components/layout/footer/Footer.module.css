@@ -1,0 +1,6 @@
+footer{
+    width: 100vw;
+    height: 150px;
+    background-color: var(--surface);
+    padding: 30px 8vw;
+}

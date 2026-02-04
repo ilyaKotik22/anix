@@ -1,4 +1,5 @@
 import CommentsList from "@/features/comments/components/CommentsList";
+import PlayerBlock, { type Episodes } from "@/features/playerBlock/PlayerBlock";
 import { useGetAnimeInfo } from "@/hooks/useGetAnimeInfo";
 import AnimePageBody from "@/pages/animePage/components/AinmePageBody";
 
@@ -21,6 +22,7 @@ const Anime = () => {
         totalEpisodes={data?.totalEpisodes}
         episodes={data?.episodes}
       />
+      <PlayerBlock data={data?.episodes || []}/>
       <CommentsList />
     </main>
   );

@@ -10,12 +10,16 @@
 
 }
 .list li{
+    transition: 200ms;
     color: white;
     font-size: 12px;
     width: 80vw !important;
     display: flex;
     align-items: center;
     padding: 5px 15px;
+}
+.list li:hover{
+    background-color: rgb(43, 43, 43);
 }
 .list li a{
     align-items: center;
@@ -24,6 +28,7 @@
     width: max-content;
 }
 .list li img{
+    margin-left: 10px;
     margin-right: 10px;
     width: 20px;
     height: 40px;
