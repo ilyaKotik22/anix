@@ -1,0 +1,33 @@
+.vis{
+    padding: 20px 8vw;
+    display: flex;
+    width: 100vw;
+    position: fixed;
+    height: max-content;
+    z-index: 400;
+    top: 100px;
+    left: 0;
+    background-color: var(--surface);
+    flex-wrap: wrap;
+    
+    
+}
+.vis li{
+    font-size: 12px;
+    padding: 5px 0;
+    width: 25%;
+    cursor: pointer;
+}
+
+.vis li a{
+    color: white;
+}
+.unVis{
+    display: none;
+}
+
+@media (min-width: 1024px){
+    .vis li{
+        font-size: 16px;
+    }
+}

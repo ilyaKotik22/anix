@@ -1,11 +1,8 @@
 import AnimeList from "@/components/shared/animeList/AnimeList";
 import { useGetAnimeList } from "@/hooks/useGetAnimeList";
 
-
-const Home = () => {
-  const { data } = useGetAnimeList("latest-completed");
-
-  
+const NewReleases = () => {
+  const { data } = useGetAnimeList("");
   return (
     <main>
       <AnimeList data={data || []} />
@@ -13,4 +10,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default NewReleases;

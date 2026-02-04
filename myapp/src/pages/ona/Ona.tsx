@@ -1,7 +1,7 @@
 import AnimeList from "@/components/shared/animeList/AnimeList";
 import { useGetAnimeList } from "@/hooks/useGetAnimeList";
 
-const Movies = () => {
+const Ona = () => {
     const { data } = useGetAnimeList("");
     return ( 
     <main>
@@ -9,4 +9,4 @@ const Movies = () => {
     </main> );
 }
  
-export default Movies;
+export default Ona;
