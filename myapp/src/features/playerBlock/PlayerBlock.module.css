@@ -1,0 +1,21 @@
+.playerBlock{
+    margin-top: 25px;
+    width: 100%;
+    padding: 20px 7vw;
+    position: relative;
+    background-color: var(--surface);
+}
+.playerBlock .navBar{
+    
+    position: absolute;
+    background-color: var(--background);
+}
+.playerBlock .rightBar{
+    left: 300px;
+}
+.playerBlock .navBar .chose{
+    padding:  10px 40px;
+}
+.playerBlock .navBar ul li{
+    padding: 10px 60px;
+}

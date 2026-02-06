@@ -6,15 +6,19 @@ import DropdownSearch from "./dropdownSearch";
 
 const SearchInput = () => {
   const [text, setText] = useState<string>("");
-  const { data, isLoading, isSuccess, isError } = useSeacrh(text);
-  console.log(data)
+  const { data } = useSeacrh(text);
+
   return (
     <section style={{ width: "100%" }}>
       <MyInput
+        value={text}
         onChange={(e) => setText(e.target.value)}
         leftIcon={<Search size={15} />}
       />
-      <DropdownSearch data={Array.isArray(data) ? data : []}/>
+      <DropdownSearch
+        action={()=> setText("")}
+        data={Array.isArray(data) ? data : []}
+      />
     </section>
   );
 };

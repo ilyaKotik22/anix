@@ -1,9 +1,13 @@
 .Mybutton{
-    margin-top: 10px;
+    transition: 200ms;
+    cursor: pointer;
     background-color: var(--button-color);
     border-color: var(--button-color);
     font-weight: bold;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
+}
+.Mybutton:hover{
+    background-color: var(--button-color-hover);
 }

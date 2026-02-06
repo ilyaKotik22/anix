@@ -57,7 +57,6 @@ const skeletonList = [
   </div>,
 ];
 const AnimeList = ({ data }: AnimeList) => {
-  console.log(data.length == 0 ? "пусто" : "массив");
   return (
     <>
       {data.length != 0 ? (
@@ -87,7 +86,7 @@ const AnimeList = ({ data }: AnimeList) => {
         </div>
       )}
 
-      <div className="">skel</div>
+     
     </>
   );
 };

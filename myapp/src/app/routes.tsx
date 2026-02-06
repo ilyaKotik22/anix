@@ -1,5 +1,6 @@
 
 import Anime from "@/pages/animePage/Anime"
+import Auth from "@/pages/Auth/Auth"
 import GenrePage from "@/pages/genre/GenrePage"
 import Home from "@/pages/home/home"
 import LatestComplete from "@/pages/latestComplete/LatestComplete"
@@ -19,7 +20,8 @@ export const PATHNAMES = {
     latestCompleted: '/latest-completed',
     ova: '/ova',
     ona: '/ona',
-    search: '/seacrh'
+    search: '/seacrh',
+    auth: '/auth'
 
 }
 
@@ -60,6 +62,10 @@ export const ROUTES = [
     {
         pathname: PATHNAMES.ona,
         component: <Ona/>
+    },
+    {
+        pathname: PATHNAMES.auth,
+        component: <Auth/>
     },
     
 ]

@@ -1,0 +1,35 @@
+.list{
+    display: block !important;
+    position: fixed !important;
+    left: 0 !important;
+    top: 50px !important;  
+    width: 80vw !important;
+    padding: 10px !important;
+    background-color: var(--surface) !important;
+    max-width: 1000px;
+
+}
+.list li{
+    transition: 200ms;
+    color: white;
+    font-size: 12px;
+    width: 80vw !important;
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+}
+.list li:hover{
+    background-color: rgb(43, 43, 43);
+}
+.list li a{
+    align-items: center;
+    display: flex;
+    color: white;
+    width: max-content;
+}
+.list li img{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 20px;
+    height: 40px;
+}
