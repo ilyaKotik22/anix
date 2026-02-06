@@ -1,0 +1,27 @@
+.myForm{
+    background-color: var(--surface);
+    font-weight: bold;
+    width: 100%;
+    padding: 15px 25px;
+}   
+.myForm .title{
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.myForm .block{
+    padding-bottom: 15px;
+}
+.myForm .block div{
+    margin-bottom: 10px;
+}
+.myForm .buttonSection{
+    display: flex;
+    justify-content: space-between;
+}
+@media (min-width: 700px) {
+    .myForm {
+        max-width: 700px;
+        margin: 0 7vw;
+    }
+}
