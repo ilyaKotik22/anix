@@ -37,9 +37,9 @@ const AnimePageBody = ({
         <div className={style.title}>{title || <MySkeleton/>}</div>
         <ul className={style.info}>
           {genres?.map((el) => (
-            <ul>
+            <ul key={el}>
               {el.split("   ").map((ell) => (
-                <li>{ell}</li>
+                <li key={ell}>{ell}</li>
               ))}
             </ul>
           ))}

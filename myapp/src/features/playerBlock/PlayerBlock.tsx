@@ -1,5 +1,7 @@
 import { useState } from "react";
 import style from "./PlayerBlock.module.css";
+import { usePlayerBlock } from "./hooks/usePlayerBlock";
+import { VideoPlayer } from "./VideoPlayer";
 export type Episodes = {
   id: string;
   number: number;
@@ -7,25 +9,30 @@ export type Episodes = {
   url: string;
 };
 type PlayerBlock = {
-  data: Episodes[];
+  dataa: Episodes[];
 };
 
-const PlayerBlock = ({ data }: PlayerBlock) => {
-  const [seriaVis, setSeriaVis] = useState<boolean>(false);
-  const [seriasValue, setSeriasValue] = useState<string>("");
-  console.log(data[1])
+const PlayerBlock = ({ dataa }: PlayerBlock) => {
+
+
+  const { data, seriaVis, setSeriaVis, setSeriasValue } = usePlayerBlock(dataa[0]?.id)
+
+  const [voiceVis, setVoiceVis] = useState<boolean>(false)
+  const [dub, setDub] = useState('')
+  
+
   return (
     <section className={style.playerBlock}>
       <section className={style.navBar}>
         <section className={style.chose} onClick={() => setSeriaVis((e) => !e)}>
-          {seriasValue ? seriasValue : "выбрать"}
+          {"серия"}
         </section>
         <ul>
           {seriaVis &&
-            data.map((item: Episodes, index) => (
+            dataa.map((item: Episodes, index) => (
               <li
                 onClick={() => {
-                  setSeriasValue(String(index + 1));
+                  setSeriasValue(String(dataa[index].id));
                   setSeriaVis((e) => !e);
                 }}
               >
@@ -34,6 +41,27 @@ const PlayerBlock = ({ data }: PlayerBlock) => {
             ))}
         </ul>
       </section>
+      <section className={`${style.navBar} ${style.rightBar}`} >
+        <section className={style.chose} onClick={() => setVoiceVis((e) => !e)}>
+          {"Озвучка"}
+        </section>
+        <ul>
+          {voiceVis &&
+            data?.subtitles.map((item: Episodes) => (
+              <li
+                onClick={() => {
+                  setVoiceVis((e) => !e)
+                  setDub(item.url)
+                }}
+              >
+                {item.lang}
+              </li>
+            ))}
+        </ul>
+      </section>
+      {data?.sources?.[0]?.url && (
+        <VideoPlayer src={data.sources[0].url} reff={data.headers.Referer as string} />
+      )}
     </section>
   );
 };

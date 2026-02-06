@@ -22,7 +22,8 @@ const Anime = () => {
         totalEpisodes={data?.totalEpisodes}
         episodes={data?.episodes}
       />
-      <PlayerBlock data={data?.episodes || []}/>
+      {data?.episodes && <PlayerBlock dataa={data?.episodes}/>}
+      
       <CommentsList />
     </main>
   );
