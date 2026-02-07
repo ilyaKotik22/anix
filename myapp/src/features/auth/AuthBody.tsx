@@ -1,37 +1,17 @@
 import { MyInput } from '@/components/ui/myInput/MyInput';
 import style from './AuthBody.module.css'
 import MyButton from '@/components/ui/myButton/MyButton';
-import { useForm } from 'react-hook-form';
-
-type RegisterForm = {
-    username: string
-    email: string
-    password: string
-}
+import { useAuthForm } from './hooks/useAuthForm';
+import { useState } from 'react';
 
 const AuthBody = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors, isSubmitting },
-        reset,
-    } = useForm<RegisterForm>({
-        mode: 'onChange',
-        defaultValues: {
-            username: '',
-            email: '',
-            password: ''
-        }
-    })
-
-    const onSubmit = (data: RegisterForm) => {
-        console.log("форма отправленна:", data)
-        reset()
-    }
-
+    const [action,setAction] = useState<string>('reg')
+    const {register,handleSubmit,error,errors,onSubmit} = useAuthForm(action)
+    
     return (
         <form className={style.myForm} onSubmit={handleSubmit(onSubmit)}>
-            <div className={style.title}>Регистрация</div>
+            <div className={style.title}>{action === 'reg' ? 'Регистрация' : 'Вход'}</div>
+            <div className="">{error}</div>
             <div className={style.block}>
                 <div className="">Логин</div>
                 {errors.username && (
@@ -69,10 +49,15 @@ const AuthBody = () => {
                 })} type="password"
                     placeholder="Минимум 6 символов" />
             </div>
-            <div className={style.buttonSection}>
-                <MyButton content='войти' onClick={() => console.log('Переход на логин')}/>
+            {action === 'reg' ? <div className={style.buttonSection}>
+                <div  onClick={() => setAction('login')}>войти</div>
                 <MyButton content='зарегистрироваться' type="submit" />
-            </div>
+            </div>:<div className={style.buttonSection}>
+                <div content='зарегистрироваться'  onClick={() => setAction('reg')}>зарегистрироваться</div>
+                <MyButton content='войти' type="submit"/>
+                
+            </div>}
+            
         </form>);
 }
 
