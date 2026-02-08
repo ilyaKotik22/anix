@@ -7,7 +7,7 @@ type AnimeList = {
   data: AnimeCardType[] | [];
 };
 const skeletonList = [
-  <div style={{ width: "150px", height: "200px" }}>
+  <div key={'sda'} style={{ width: "150px", height: "200px" }}>
     <MySkeleton />
   </div>,
   <div style={{ width: "150px", height: "200px" }}>
@@ -63,6 +63,7 @@ const AnimeList = ({ data }: AnimeList) => {
         <ul className={style.AnimeList}>
           {data.map((el: AnimeCardType) => (
             <AnimeCard
+              key={el.id}
               id={el.id}
               title={el.title}
               url={el.url}
@@ -73,7 +74,7 @@ const AnimeList = ({ data }: AnimeList) => {
           ))}
         </ul>
       ) : (
-        <div
+        <ul
           style={{
             padding: "150px 6vw",
             display: "flex",
@@ -82,8 +83,8 @@ const AnimeList = ({ data }: AnimeList) => {
             gap: "5px",
           }}
         >
-          {skeletonList.map((el) => el)}
-        </div>
+          {skeletonList.map((el, index) =><li key={index}>{el}</li> )}
+        </ul>
       )}
 
      

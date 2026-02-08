@@ -9,6 +9,7 @@ import MyTab from "@/pages/myTab/myTab"
 import NewReleases from "@/pages/newReleases/NewReleases"
 import Ona from "@/pages/ona/Ona"
 import Ova from "@/pages/ova/Ova"
+import Profile from "@/pages/profile/Profile"
 
 export const PATHNAMES = {
     home: '/',
@@ -21,7 +22,8 @@ export const PATHNAMES = {
     ova: '/ova',
     ona: '/ona',
     search: '/seacrh',
-    auth: '/auth'
+    auth: '/auth',
+    profile: (el:string) => `profile/${el}`
 
 }
 
@@ -66,6 +68,10 @@ export const ROUTES = [
     {
         pathname: PATHNAMES.auth,
         component: <Auth/>
+    },
+    {
+        pathname: '/profile/:username',
+        component: <Profile/>
     },
     
 ]

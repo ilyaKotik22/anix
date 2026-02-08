@@ -1,0 +1,49 @@
+.Profile{
+    padding: 120px 7vw;
+    width: 99vw;
+    display: block;
+}
+.Profile .sec{
+    width: 100%;
+}
+.Profile .sec .buttonSec{
+    display: flex;
+    justify-content: space-between;
+}
+.Profile .sec .info {
+    
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+}
+
+.Profile .sec img{
+    margin: 25px auto;
+    
+}
+.Profile .sec section{
+    font-size: 16px;
+    font-weight: bold;
+    
+}
+.Profile .sec ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    display: flex;
+}
+@media (min-width: 800px){
+    .Profile{
+        gap: 100px;
+        display: flex;
+    }   
+    .Profile .imgSec {
+        width: 30vw;
+    }
+    .Profile .sec ul{
+        
+      
+        justify-content: left;
+    }
+}

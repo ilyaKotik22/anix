@@ -5,6 +5,7 @@ import type { AnimeCardType } from "@/types/anime";
 import { PATHNAMES } from "@/app/routes";
 
 const AnimeCard = ({
+
   id,
   title,
   url,
@@ -13,18 +14,24 @@ const AnimeCard = ({
   subOrDub,
 }: AnimeCardType) => {
   return (
-    <Link to={`/${PATHNAMES.animePage(id)}`}>
-        <li className={style.AnimeCard}>
-        <section className={style.imgSection}>
-          <img src={image} alt="" />
-        </section>
-        <section className={style.infoSection}>
-          <h2>{title}</h2>
-          
-        </section>
-      </li>
-    </Link>
-    
+   
+    <li  key={id}>
+      <Link key={id} to={`/${PATHNAMES.animePage(id)}`}>
+        <div key={id} className={style.AnimeCard}>
+          <section className={style.imgSection}>
+            <img src={image} alt="" />
+          </section>
+          <section className={style.infoSection}>
+            <h2>{title}</h2>
+
+          </section>
+        </div>
+      </Link>
+    </li>
+      
+  
+
+
   );
 };
 
