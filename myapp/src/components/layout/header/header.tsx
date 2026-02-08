@@ -6,11 +6,15 @@ import { useEffect, useState } from "react";
 import DropdownMenu from "./dropdowmMenu/DropdownMenu";
 import { useGetGenreList } from "@/hooks/useGetGenreList";
 import { Settings } from "lucide-react";
+import { PATHNAMES } from "@/app/routes";
 
 const Header = () => {
   const location = useLocation();
   const {data} = useGetGenreList()
   const [vis,setVis] = useState<boolean>(false)
+
+  const user = localStorage.getItem('user') || ''
+  
 
   useEffect(() => {}, [location]);
   const navigation = [
@@ -30,7 +34,9 @@ const Header = () => {
 
           <section className={style.rightBar}>
             <div className=""><Settings style={{minWidth:'45px'}} width={45} /></div>
-            <MyButton content="Войти" />
+            <Link to={PATHNAMES.profile(JSON.parse(user).name)}>{user !== '' ? JSON.parse(user).name : <MyButton  content="Войти" />}</Link>
+            
+            
           </section>
         </section>
         <section className={style.sec}>

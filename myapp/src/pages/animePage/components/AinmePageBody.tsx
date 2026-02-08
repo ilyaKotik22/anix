@@ -4,6 +4,8 @@ import style from "../styles/AnimePageBody.module.css";
 import type { AnimeInfo } from "@/types/anime";
 import type { ReactElement } from "react";
 import MySkeleton from "@/components/ui/mySkeleton/Skeleton";
+import { useAddInFavorite } from "@/hooks/useAddInFavorites";
+import { postAddFavorite } from "@/api/postAddFavorite";
 
 const AnimePageBody = ({
   id,
@@ -19,13 +21,20 @@ const AnimePageBody = ({
   totalEpisodes,
   episodes,
 }: AnimeInfo) => {
+
+
+  const addHandle = (id:string,title:string,poster:string,description:string) => {
+    const token = localStorage.getItem('authToken') || ''
+    postAddFavorite({id,title,poster,description}, token)
+  }
+
   const specification = [
-    { lable: "Всего эпизодов", data: totalEpisodes  },
+    { lable: "Всего эпизодов", data: totalEpisodes },
     { lable: "Режиссёр", data: subOrDub },
-    { lable: "Другое название", data: otherName || 'sad'},
+    { lable: "Другое название", data: otherName || 'sad' },
     // { lable: "Жанр", data: genres?.map(el=> <div>{el}</div>) },
     { lable: "Статус", data: status },
-    { lable: "тип", data: type  },
+    { lable: "тип", data: type },
   ];
 
   return (
@@ -34,7 +43,7 @@ const AnimePageBody = ({
         <img src={image} alt="" />
       </section>
       <section className={`${style.halfs} ${style.rightHalf}`}>
-        <div className={style.title}>{title || <MySkeleton/>}</div>
+        <div className={style.title}>{title || <MySkeleton />}</div>
         <ul className={style.info}>
           {genres?.map((el) => (
             <ul key={el}>
@@ -49,7 +58,7 @@ const AnimePageBody = ({
               data: string | undefined | ReactElement[] | number;
             }) => (
               <li key={el.lable}>
-                {el.lable}: {el.data || <MySkeleton/>}
+                {el.lable}: {el.data || <MySkeleton />}
               </li>
             ),
           )}
@@ -62,19 +71,20 @@ const AnimePageBody = ({
             className={style.APBbutton}
           />
           <MyButton
+          onClick={()=> addHandle(id,title,image,description)}
             content="♥ Добавить в избранное"
             className={style.APBbuttonsec}
           />
         </div>
 
         <div className={style.title}>Описание</div>
-        <div className={style.desc }>{description || <MySkeleton/>}</div>
+        <div className={style.desc}>{description || <MySkeleton />}</div>
       </section>
       <section>
         <ul>
-          
+
         </ul>
-        
+
       </section>
     </section>
   );
