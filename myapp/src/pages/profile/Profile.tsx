@@ -5,9 +5,11 @@ import AnimeCard from '@/components/shared/animeCard/AnimeCard';
 import MyButton from '@/components/ui/myButton/MyButton';
 import { useLogout } from '@/features/auth/hooks/useLogout';
 
+
 const Profile = () => {
     const { data } = useGetProfileInfo()
     const {doLogout} = useLogout()
+
     console.log(data)
     return (
         <main className={style.Profile}>

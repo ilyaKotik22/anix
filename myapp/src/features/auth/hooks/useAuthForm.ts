@@ -1,5 +1,6 @@
 import { postAuthLogin } from "@/api/postAuthLogin";
 import { postAuthReg } from "@/api/postAuthReg";
+import { useAuth } from "@/app/context";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -12,6 +13,7 @@ type RegisterForm = {
 export const useAuthForm = (action: string) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { login } = useAuth();
   const [error, setError] = useState<string>("");
   const {
     register,
@@ -35,11 +37,11 @@ export const useAuthForm = (action: string) => {
       const result = await postAuthLogin(data);
       console.log(result);
       if (result.data.token) {
-        localStorage.setItem("authToken", result.data.token);
+        login(result.data.user,result.data.token)
+        // localStorage.setItem("authToken", result.data.token);
 
-        // 2. Сохраняем данные пользователя (опционально)
-        localStorage.setItem("user", JSON.stringify(result.data.user));
-        navigate(location.pathname, { replace: true });
+        // // 2. Сохраняем данные пользователя (опционально)
+        // localStorage.setItem("user", JSON.stringify(result.data.user));
         navigate(`../profile/${result.data.user.name}`)
         console.log(result);
       } else {
