@@ -3,9 +3,11 @@ import img from '../../././../public/images.png'
 import { useGetProfileInfo } from '@/hooks/useGetProfileInfo';
 import AnimeCard from '@/components/shared/animeCard/AnimeCard';
 import MyButton from '@/components/ui/myButton/MyButton';
+import { useLogout } from '@/features/auth/hooks/useLogout';
 
 const Profile = () => {
     const { data } = useGetProfileInfo()
+    const {doLogout} = useLogout()
     console.log(data)
     return (
         <main className={style.Profile}>
@@ -13,7 +15,7 @@ const Profile = () => {
                 <img src={img} alt="" />
                 <section className={style.buttonSec}>
                     <MyButton content='Добавить аватар'/>
-                    <MyButton content='Выйти'/>
+                    <MyButton onClick={()=>doLogout()} content='Выйти'/>
                 </section>
                 
             </section>

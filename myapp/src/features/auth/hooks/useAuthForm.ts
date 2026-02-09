@@ -40,6 +40,7 @@ export const useAuthForm = (action: string) => {
         // 2. Сохраняем данные пользователя (опционально)
         localStorage.setItem("user", JSON.stringify(result.data.user));
         navigate(location.pathname, { replace: true });
+        navigate(`../profile/${result.data.user.name}`)
         console.log(result);
       } else {
         setError(result);
