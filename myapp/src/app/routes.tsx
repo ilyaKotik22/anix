@@ -14,7 +14,7 @@ import Profile from "@/pages/profile/Profile"
 export const PATHNAMES = {
     home: '/',
     movies: '/movies',
-    myTab: '/mytab',
+    myTab: '/mytabs',
     animePage: (el:string)=> `animepage/${el}`,
     genrePage: (el:string) => `genre/${el}`,
     newReleases: '/new-releases',
@@ -27,7 +27,7 @@ export const PATHNAMES = {
 
 }
 
-export const ROUTES = [
+export const PUBLIC_ROUTES = [
     {
         pathname: PATHNAMES.home,
         component: <Home/>,
@@ -35,10 +35,6 @@ export const ROUTES = [
     {
         pathname: PATHNAMES.movies,
         component: <Movies/>,
-    },
-    {
-        pathname: PATHNAMES.myTab,
-        component: <MyTab/>,
     },
     {
         pathname: '/animepage/:id',
@@ -69,9 +65,16 @@ export const ROUTES = [
         pathname: PATHNAMES.auth,
         component: <Auth/>
     },
+    
+    
+]
+export const PRIVATE_ROUTES = [
     {
         pathname: '/profile/:username',
         component: <Profile/>
     },
-    
-]
+    {
+        pathname: PATHNAMES.myTab,
+        component: <MyTab/>,
+    },
+] 

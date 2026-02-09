@@ -1,16 +1,16 @@
 import MyButton from "@/components/ui/myButton/MyButton";
-import img1 from "../../../../public/images.png";
 import style from "../styles/AnimePageBody.module.css";
 import type { AnimeInfo } from "@/types/anime";
-import type { ReactElement } from "react";
+import { useEffect, type ReactElement } from "react";
 import MySkeleton from "@/components/ui/mySkeleton/Skeleton";
-import { useAddInFavorite } from "@/hooks/useAddInFavorites";
 import { postAddFavorite } from "@/api/postAddFavorite";
+import { useGetProfileInfo } from "@/hooks/useGetProfileInfo";
+import { useAddInFavorite } from "@/hooks/useAddInFavorites";
 
 const AnimePageBody = ({
   id,
   title,
-  url,
+
   image,
   description,
   genres,
@@ -19,15 +19,13 @@ const AnimePageBody = ({
   status,
   otherName,
   totalEpisodes,
-  episodes,
+
 }: AnimeInfo) => {
 
-
-  const addHandle = (id:string,title:string,poster:string,description:string) => {
-    const token = localStorage.getItem('authToken') || ''
-    postAddFavorite({id,title,poster,description}, token)
-  }
-
+  const { data } = useGetProfileInfo()
+  const {addHandle} = useAddInFavorite()
+  console.log(data?.favorites ? data?.favorites.some((anime) => anime.id === id)  : '')
+  
   const specification = [
     { lable: "Всего эпизодов", data: totalEpisodes },
     { lable: "Режиссёр", data: subOrDub },
@@ -71,8 +69,8 @@ const AnimePageBody = ({
             className={style.APBbutton}
           />
           <MyButton
-          onClick={()=> addHandle(id,title,image,description)}
-            content="♥ Добавить в избранное"
+            onClick={() => addHandle({id, title, poster:image, description})}
+            content={ data?.favorites.some((anime) => anime.id === id)  ?"♥ Убрать из избранных" : "♥ Добавить в избранное"}
             className={style.APBbuttonsec}
           />
         </div>
