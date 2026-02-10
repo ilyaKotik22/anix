@@ -1,4 +1,4 @@
-import { getAnimeList } from "@/api/getAnimeList";
+import { getAnimeList } from "@/api/anime/getAnimeList";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
 

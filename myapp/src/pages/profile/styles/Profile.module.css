@@ -19,6 +19,8 @@
 }
 
 .Profile .sec img{
+    max-width: 300px;
+    max-height: 300px;
     margin: 25px auto;
     
 }

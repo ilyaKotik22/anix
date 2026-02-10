@@ -1,10 +1,10 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import style from "./header.module.css";
-import SearchInput from "@/features/searchInput/components/SearcInput";
+import SearchInput from "@/features/searchInput/SearcInput";
 import MyButton from "@/components/ui/myButton/MyButton";
 import { useEffect, useState } from "react";
-import DropdownMenu from "./dropdowmMenu/DropdownMenu";
-import { useGetGenreList } from "@/hooks/useGetGenreList";
+import DropdownMenu from "./dropdownMenu/DropdownMenu";
+import { useGetGenreList } from "@/hooks/anime/useGetGenreList";
 import { Settings } from "lucide-react";
 import { PATHNAMES } from "@/app/routes";
 

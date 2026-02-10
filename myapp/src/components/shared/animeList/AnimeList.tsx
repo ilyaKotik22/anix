@@ -1,7 +1,7 @@
 import type { AnimeCardType } from "@/types/anime";
 import AnimeCard from "../animeCard/AnimeCard";
 import style from "./AnimeList.module.css";
-import { skeletonList } from "@/helpers/Skeleton";
+import { skeletonList } from "@/helpers/SkeletonList";
 
 
 type AnimeList = {

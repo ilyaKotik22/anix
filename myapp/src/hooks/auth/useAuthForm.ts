@@ -1,5 +1,5 @@
-import { postAuthLogin } from "@/api/postAuthLogin";
-import { postAuthReg } from "@/api/postAuthReg";
+import { postAuthLogin } from "@/api/auth/postAuthLogin";
+import { postAuthReg } from "@/api/auth/postAuthReg";
 import { useAuth } from "@/app/context";
 import type { RegisterForm } from "@/types/auth";
 import { useState } from "react";

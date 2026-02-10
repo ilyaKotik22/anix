@@ -1,4 +1,4 @@
-import { getProfileInfo } from "@/api/getProfileInfo";
+import { getProfileInfo } from "@/api/auth/getProfileInfo";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 

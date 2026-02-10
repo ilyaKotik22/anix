@@ -1,4 +1,4 @@
-import { getAnimeInfo } from "@/api/getAnimeInfo";
+import { getAnimeInfo } from "@/api/anime/getAnimeInfo";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";

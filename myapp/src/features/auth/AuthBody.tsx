@@ -1,7 +1,7 @@
 import { MyInput } from '@/components/ui/myInput/MyInput';
 import style from './AuthBody.module.css'
 import MyButton from '@/components/ui/myButton/MyButton';
-import { useAuthForm } from './hooks/useAuthForm';
+import { useAuthForm } from '../../hooks/auth/useAuthForm';
 import { useState } from 'react';
 
 const AuthBody = () => {

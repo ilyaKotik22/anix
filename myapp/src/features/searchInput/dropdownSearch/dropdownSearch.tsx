@@ -1,5 +1,5 @@
 import type { AnimeCardType } from "@/types/anime";
-import style from "../styles/dropdownSearch.module.css";
+import style from "./dropdownSearch.module.css";
 import { PATHNAMES } from "@/app/routes";
 import { useNavigate } from "react-router-dom";
 
