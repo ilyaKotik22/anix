@@ -1,20 +1,16 @@
 import { postAuthLogin } from "@/api/postAuthLogin";
 import { postAuthReg } from "@/api/postAuthReg";
 import { useAuth } from "@/app/context";
+import type { RegisterForm } from "@/types/auth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-type RegisterForm = {
-  username: string;
-  email: string;
-  password: string;
-};
+
 export const useAuthForm = (action: string) => {
   const navigate = useNavigate();
-  const location = useLocation();
   const { login } = useAuth();
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState<string | null>();
   const {
     register,
     handleSubmit,
@@ -32,23 +28,18 @@ export const useAuthForm = (action: string) => {
   const onSubmit = async (data: RegisterForm) => {
     console.log("форма отправленна:", data);
     if (action === "reg") {
-      setError(postAuthReg(data));
+      await postAuthReg(data);
     } else {
       const result = await postAuthLogin(data);
       console.log(result);
-      if (result.data.token) {
-        login(result.data.user,result.data.token)
-        // localStorage.setItem("authToken", result.data.token);
-
-        // // 2. Сохраняем данные пользователя (опционально)
-        // localStorage.setItem("user", JSON.stringify(result.data.user));
-        navigate(`../profile/${result.data.user.name}`)
+      if (typeof result === "object" && result !== null) {
+        login(result.data.user, result.data.token);
+        navigate(`../profile/${result.data.user.name}`);
         console.log(result);
       } else {
         setError(result);
       }
     }
-
     reset();
   };
 

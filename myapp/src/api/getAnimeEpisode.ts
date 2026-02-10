@@ -1,15 +1,16 @@
 import axios from "axios";
+const BASE_URL =  import.meta.env.VITE_BASE_URL
+const url = BASE_URL +"/watch/";
 
-// Using the example episode ID of "naruto-shippuden-1-episode-1".
-const url = "http://127.0.0.1:3000/anime/animekai/watch/";
-export const getAnimeEpisode = async (anime) => {
- try {
- const { data } = await axios.get(url+anime, { params: { dub: false } });
- console.log(data)
- return data;
- } catch (err) {
- throw new Error(err.message);
- }
+export const getAnimeEpisode = async (anime: string) => {
+  try {
+    const { data } = await axios.get(url + anime, { params: { dub: false } });
+    console.log(data);
+    return data;
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      throw err;
+    }
+    throw new Error("Unexpected error");
+  }
 };
-
-

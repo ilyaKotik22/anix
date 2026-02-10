@@ -1,4 +1,3 @@
-
 import Anime from "@/pages/animePage/Anime"
 import Auth from "@/pages/Auth/Auth"
 import GenrePage from "@/pages/genre/GenrePage"
@@ -15,66 +14,66 @@ export const PATHNAMES = {
     home: '/',
     movies: '/movies',
     myTab: '/mytabs',
-    animePage: (el:string)=> `animepage/${el}`,
-    genrePage: (el:string) => `genre/${el}`,
+    animePage: (el: string) => `animepage/${el}`,
+    genrePage: (el: string) => `genre/${el}`,
     newReleases: '/new-releases',
     latestCompleted: '/latest-completed',
     ova: '/ova',
     ona: '/ona',
     search: '/seacrh',
     auth: '/auth',
-    profile: (el:string) => `profile/${el}`
+    profile: (el: string) => `profile/${el}`
 
 }
 
 export const PUBLIC_ROUTES = [
     {
         pathname: PATHNAMES.home,
-        component: <Home/>,
+        component: <Home />,
     },
     {
         pathname: PATHNAMES.movies,
-        component: <Movies/>,
+        component: <Movies />,
     },
     {
         pathname: '/animepage/:id',
-        component: <Anime/>,
+        component: <Anime />,
     },
     {
         pathname: '/genre/:genre',
-        component: <GenrePage/>,
+        component: <GenrePage />,
     },
 
     {
         pathname: PATHNAMES.newReleases,
-        component: <NewReleases/>
+        component: <NewReleases />
     },
     {
         pathname: PATHNAMES.latestCompleted,
-        component: <LatestComplete/>
+        component: <LatestComplete />
     },
     {
         pathname: PATHNAMES.ova,
-        component: <Ova/>
+        component: <Ova />
     },
     {
         pathname: PATHNAMES.ona,
-        component: <Ona/>
+        component: <Ona />
     },
     {
         pathname: PATHNAMES.auth,
-        component: <Auth/>
+        component: <Auth />
     },
-    
-    
+
+
 ]
 export const PRIVATE_ROUTES = [
     {
         pathname: '/profile/:username',
-        component: <Profile/>
+        component: <Profile />
     },
     {
         pathname: PATHNAMES.myTab,
-        component: <MyTab/>,
+        component: <MyTab />,
     },
 ] 

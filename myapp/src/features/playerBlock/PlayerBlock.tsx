@@ -7,6 +7,7 @@ export type Episodes = {
   number: number;
   title: string;
   url: string;
+  lang:string
 };
 type PlayerBlock = {
   dataa: Episodes[];
@@ -18,7 +19,6 @@ const PlayerBlock = ({ dataa }: PlayerBlock) => {
   const { data, seriaVis, setSeriaVis, setSeriasValue } = usePlayerBlock(dataa[0]?.id)
 
   const [voiceVis, setVoiceVis] = useState<boolean>(false)
-  const [dub, setDub] = useState('')
   
 
   return (
@@ -51,7 +51,7 @@ const PlayerBlock = ({ dataa }: PlayerBlock) => {
               <li
                 onClick={() => {
                   setVoiceVis((e) => !e)
-                  setDub(item.url)
+                 
                 }}
               >
                 {item.lang}

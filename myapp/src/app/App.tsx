@@ -11,16 +11,16 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header/>  
+      <Header />
 
       <Routes>
-          {PUBLIC_ROUTES.map(el=> <Route path={el.pathname} element={el.component}/>)}
-          {user && PRIVATE_ROUTES.map(el=> <Route path={el.pathname} element={el.component}/>)}
+        {PUBLIC_ROUTES.map(el => <Route path={el.pathname} element={el.component} />)}
+        {user && PRIVATE_ROUTES.map(el => <Route path={el.pathname} element={el.component} />)}
 
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
-    
+
   )
 }
 
