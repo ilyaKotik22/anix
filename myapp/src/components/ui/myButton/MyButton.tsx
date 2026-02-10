@@ -1,4 +1,4 @@
-import type { ElementType } from "react";
+import type { ComponentPropsWithoutRef, ElementType } from "react";
 import style from "./MyButton.module.css";
 type ButtonProps<C extends ElementType = "button"> = {
   as?: C;
@@ -6,7 +6,7 @@ type ButtonProps<C extends ElementType = "button"> = {
   className?: string;
   onClick?: () => void;
   content: string;
-};
+} & ComponentPropsWithoutRef<C>;
 
 const MyButton = ({
   as,

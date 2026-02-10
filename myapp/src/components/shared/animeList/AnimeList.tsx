@@ -1,61 +1,13 @@
 import type { AnimeCardType } from "@/types/anime";
 import AnimeCard from "../animeCard/AnimeCard";
 import style from "./AnimeList.module.css";
+import { skeletonList } from "@/helpers/Skeleton";
 
-import MySkeleton from "@/components/ui/mySkeleton/Skeleton";
+
 type AnimeList = {
   data: AnimeCardType[] | [];
 };
-const skeletonList = [
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-];
+
 const AnimeList = ({ data }: AnimeList) => {
   return (
     <>
@@ -63,6 +15,7 @@ const AnimeList = ({ data }: AnimeList) => {
         <ul className={style.AnimeList}>
           {data.map((el: AnimeCardType) => (
             <AnimeCard
+              key={el.id}
               id={el.id}
               title={el.title}
               url={el.url}
@@ -73,7 +26,7 @@ const AnimeList = ({ data }: AnimeList) => {
           ))}
         </ul>
       ) : (
-        <div
+        <ul
           style={{
             padding: "150px 6vw",
             display: "flex",
@@ -82,11 +35,11 @@ const AnimeList = ({ data }: AnimeList) => {
             gap: "5px",
           }}
         >
-          {skeletonList.map((el) => el)}
-        </div>
+          {skeletonList.map((el, index) => <li key={index}>{el}</li>)}
+        </ul>
       )}
 
-     
+
     </>
   );
 };
