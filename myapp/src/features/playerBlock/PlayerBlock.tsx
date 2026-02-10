@@ -1,6 +1,6 @@
 import { useState } from "react";
 import style from "./PlayerBlock.module.css";
-import { usePlayerBlock } from "./hooks/usePlayerBlock";
+import { usePlayerBlock } from "../../hooks/anime/usePlayerBlock";
 import { VideoPlayer } from "./VideoPlayer";
 export type Episodes = {
   id: string;

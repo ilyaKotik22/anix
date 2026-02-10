@@ -1,8 +1,8 @@
-import { getAnimeEpisode } from "@/api/getAnimeEpisode";
+import { getAnimeEpisode } from "@/api/anime/getAnimeEpisode";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
-export const usePlayerBlock = (item) => {
+export const usePlayerBlock = (item:string) => {
     const [seriaVis, setSeriaVis] = useState<boolean>(false);
     const [seriasValue, setSeriasValue] = useState<string>(item);
 

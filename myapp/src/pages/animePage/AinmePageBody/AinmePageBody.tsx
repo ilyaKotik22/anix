@@ -1,9 +1,9 @@
 import MyButton from "@/components/ui/myButton/MyButton";
-import style from "../styles/AnimePageBody.module.css";
+import style from "./AnimePageBody.module.css";
 import type { AnimeCardType, AnimeInfo } from "@/types/anime";
 import MySkeleton from "@/components/ui/mySkeleton/Skeleton";
-import { useGetProfileInfo } from "@/hooks/useGetProfileInfo";
-import { useAddInFavorite } from "@/hooks/useAddInFavorites";
+import { useGetProfileInfo } from "@/hooks/auth/useGetProfileInfo";
+import { useAddInFavorite } from "@/hooks/anime/useAddInFavorites";
 import { useNavigate } from "react-router-dom";
 import type { ReactElement } from "react";
 const AnimePageBody = ({

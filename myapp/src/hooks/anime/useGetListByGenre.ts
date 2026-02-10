@@ -1,4 +1,4 @@
-import { getListByGenre } from "@/api/getListByGenre";
+import { getListByGenre } from "@/api/anime/getListByGenre";
 import type { AnimeCardType } from "@/types/anime";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";

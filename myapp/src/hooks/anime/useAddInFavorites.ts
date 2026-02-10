@@ -1,4 +1,5 @@
-import { postAddFavorite } from "@/api/postAddFavorite";
+
+import { postAddFavorite } from "@/api/anime/postAddFavorite";
 import type { AnimeFav } from "@/types/anime";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 

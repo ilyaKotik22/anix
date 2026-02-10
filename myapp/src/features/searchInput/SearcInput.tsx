@@ -1,8 +1,8 @@
 import { MyInput } from "@/components/ui/myInput/MyInput";
-import { useSeacrh } from "@/hooks/useSearch";
+import { useSeacrh } from "@/hooks/anime/useSearch";
 import { Search } from "lucide-react";
 import { useState } from "react";
-import DropdownSearch from "./dropdownSearch";
+import DropdownSearch from "./dropdownSearch/dropdownSearch";
 
 const SearchInput = () => {
   const [text, setText] = useState<string>("");

@@ -1,5 +1,5 @@
 import AnimeList from "@/components/shared/animeList/AnimeList";
-import { useGetAnimeList } from "@/hooks/useGetAnimeList";
+import { useGetAnimeList } from "@/hooks/anime/useGetAnimeList";
 
 const Ova = () => {
     const { data } = useGetAnimeList("");

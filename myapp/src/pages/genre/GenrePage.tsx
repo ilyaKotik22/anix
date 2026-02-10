@@ -1,5 +1,5 @@
 import AnimeList from "@/components/shared/animeList/AnimeList";
-import { useGetListByGenre } from "@/hooks/useGetListByGenre";
+import { useGetListByGenre } from "@/hooks/anime/useGetListByGenre";
 
 const GenrePage = () => {
     const {data} = useGetListByGenre()
