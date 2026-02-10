@@ -9,16 +9,9 @@ import { Settings } from "lucide-react";
 import { PATHNAMES } from "@/app/routes";
 
 const Header = () => {
-  const navigate = useNavigate()
-  const location = useLocation();
-  const { data } = useGetGenreList()
-  const [vis, setVis] = useState<boolean>(false)
-  
   const user = localStorage.getItem('user') || ''
-
-
-  useEffect(() => { }, [location]);
-  const navigation = [
+  
+   const navigation = [
     { label: "Моя вкладка", path: user !== '' ? "/mytabs" : '/auth' },
     { label: "Недавнее", path: "/" }, //recent-added
     { label: "Новые", path: "/new-releases" },
@@ -27,6 +20,13 @@ const Header = () => {
     { label: "ОНА", path: "/ona" },
     { label: "Фильмы", path: "/movies" },
   ];
+  const navigate = useNavigate()
+  const location = useLocation();
+  const { data } = useGetGenreList()
+  const [vis, setVis] = useState<boolean>(false)
+
+  useEffect(() => { }, [location]);
+ 
   return (
     <>
       <header>
@@ -35,10 +35,7 @@ const Header = () => {
 
           <section className={style.rightBar}>
             <div className=""><Settings style={{ minWidth: '45px' }} width={45} /></div>
-            {user !== '' ? <Link to={PATHNAMES.profile(JSON.parse(user).name) || ''}>{JSON.parse(user).name}</Link> : <MyButton onClick={()=>navigate('/auth')} content="Войти" />}
-
-
-
+            {user !== '' ? <Link to={PATHNAMES.profile(JSON.parse(user).name) || ''}>{JSON.parse(user).name}</Link> : <MyButton onClick={() => navigate('/auth')} content="Войти" />}
           </section>
         </section>
         <section className={style.sec}>

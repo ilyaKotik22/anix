@@ -1,5 +1,5 @@
 export type AnimeCardType = {
-  id?: string;
+  id: string;
   title?: string;
   url?: string;
   image?: string;
@@ -24,6 +24,13 @@ export type AnimeInfo = {
       number: number;
       title: string;
       url: string;
+      lang:string
     },
   ];
+};
+export type AnimeFav = {
+  id: string;
+  title: string;
+  poster?: string;
+  description: string;
 };

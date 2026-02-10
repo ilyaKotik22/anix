@@ -5,9 +5,9 @@ import { useAuthForm } from './hooks/useAuthForm';
 import { useState } from 'react';
 
 const AuthBody = () => {
-    const [action,setAction] = useState<string>('reg')
-    const {register,handleSubmit,error,errors,onSubmit} = useAuthForm(action)
-    
+    const [action, setAction] = useState<string>('reg')
+    const { register, handleSubmit, error, errors, onSubmit } = useAuthForm(action)
+
     return (
         <form className={style.myForm} onSubmit={handleSubmit(onSubmit)}>
             <div className={style.title}>{action === 'reg' ? 'Регистрация' : 'Вход'}</div>
@@ -50,14 +50,14 @@ const AuthBody = () => {
                     placeholder="Минимум 6 символов" />
             </div>
             {action === 'reg' ? <div className={style.buttonSection}>
-                <div  onClick={() => setAction('login')}>войти</div>
-                <MyButton content='зарегистрироваться' type="submit" />
-            </div>:<div className={style.buttonSection}>
-                <div content='зарегистрироваться'  onClick={() => setAction('reg')}>зарегистрироваться</div>
-                <MyButton content='войти' type="submit"/>
-                
+                <div onClick={() => setAction('login')}>войти</div>
+                <MyButton as='button' content='зарегистрироваться' type="submit" />
+            </div> : <div className={style.buttonSection}>
+                <div content='зарегистрироваться' onClick={() => setAction('reg')}>зарегистрироваться</div>
+                <MyButton content='войти' type="submit" />
+
             </div>}
-            
+
         </form>);
 }
 

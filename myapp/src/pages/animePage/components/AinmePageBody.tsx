@@ -1,15 +1,14 @@
 import MyButton from "@/components/ui/myButton/MyButton";
 import style from "../styles/AnimePageBody.module.css";
-import type { AnimeInfo } from "@/types/anime";
+import type { AnimeCardType, AnimeInfo } from "@/types/anime";
 import MySkeleton from "@/components/ui/mySkeleton/Skeleton";
 import { useGetProfileInfo } from "@/hooks/useGetProfileInfo";
 import { useAddInFavorite } from "@/hooks/useAddInFavorites";
 import { useNavigate } from "react-router-dom";
-
+import type { ReactElement } from "react";
 const AnimePageBody = ({
   id,
   title,
-
   image,
   description,
   genres,
@@ -22,7 +21,7 @@ const AnimePageBody = ({
 }: AnimeInfo) => {
   const navigate = useNavigate()
   const { data } = useGetProfileInfo()
-  const {addHandle} = useAddInFavorite()
+  const { addHandle } = useAddInFavorite()
   const user = localStorage.getItem('user') || ''
   const specification = [
     { lable: "Всего эпизодов", data: totalEpisodes },
@@ -66,8 +65,8 @@ const AnimePageBody = ({
             className={style.APBbutton}
           />
           <MyButton
-            onClick={() =>user !== '' ? addHandle({id, title, poster:image, description}) : navigate('/auth')}
-            content={ data?.favorites.some((anime) => anime.id === id)  ?"♥ Убрать из избранных" : "♥ Добавить в избранное"}
+            onClick={() => user !== '' ? (id && title && description) && addHandle({ id, title, poster: image, description }) : navigate('/auth')}
+            content={data?.favorites.some((anime: AnimeCardType) => anime.id === id) ? "♥ Убрать из избранных" : "♥ Добавить в избранное"}
             className={style.APBbuttonsec}
           />
         </div>

@@ -5,17 +5,13 @@ import type { AnimeCardType } from "@/types/anime";
 import { PATHNAMES } from "@/app/routes";
 
 const AnimeCard = ({
-
   id,
   title,
-  url,
   image,
-  releaseDate,
-  subOrDub,
 }: AnimeCardType) => {
   return (
-   
-    <li  key={id}>
+
+    <li key={id}>
       <Link key={id} to={`/${PATHNAMES.animePage(id)}`}>
         <div key={id} className={style.AnimeCard}>
           <section className={style.imgSection}>
@@ -28,8 +24,8 @@ const AnimeCard = ({
         </div>
       </Link>
     </li>
-      
-  
+
+
 
 
   );

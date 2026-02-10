@@ -1,61 +1,13 @@
 import type { AnimeCardType } from "@/types/anime";
 import AnimeCard from "../animeCard/AnimeCard";
 import style from "./AnimeList.module.css";
+import { skeletonList } from "@/helpers/Skeleton";
 
-import MySkeleton from "@/components/ui/mySkeleton/Skeleton";
+
 type AnimeList = {
   data: AnimeCardType[] | [];
 };
-const skeletonList = [
-  <div key={'sda'} style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-  <div style={{ width: "150px", height: "200px" }}>
-    <MySkeleton />
-  </div>,
-];
+
 const AnimeList = ({ data }: AnimeList) => {
   return (
     <>
@@ -83,11 +35,11 @@ const AnimeList = ({ data }: AnimeList) => {
             gap: "5px",
           }}
         >
-          {skeletonList.map((el, index) =><li key={index}>{el}</li> )}
+          {skeletonList.map((el, index) => <li key={index}>{el}</li>)}
         </ul>
       )}
 
-     
+
     </>
   );
 };
