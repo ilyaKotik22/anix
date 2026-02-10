@@ -1,7 +1,7 @@
 import CommentsList from "@/features/comments/components/CommentsList";
 import PlayerBlock from "@/features/playerBlock/PlayerBlock";
-import { useGetAnimeInfo } from "@/hooks/useGetAnimeInfo";
-import AnimePageBody from "@/pages/animePage/components/AinmePageBody";
+import { useGetAnimeInfo } from "@/hooks/anime/useGetAnimeInfo";
+import AnimePageBody from "@/pages/animePage/AinmePageBody/AinmePageBody";
 
 const Anime = () => {
   const { data } = useGetAnimeInfo();

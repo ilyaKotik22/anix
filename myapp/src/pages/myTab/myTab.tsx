@@ -1,6 +1,6 @@
 import AnimeCard from "@/components/shared/animeCard/AnimeCard";
 import style from '@/components/shared/animeList/AnimeList.module.css'
-import { useGetProfileInfo } from "@/hooks/useGetProfileInfo";
+import { useGetProfileInfo } from "@/hooks/auth/useGetProfileInfo";
 
 
 const MyTab = () => {

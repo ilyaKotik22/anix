@@ -1,4 +1,4 @@
-import { getGenreList } from "@/api/getGenreList";
+import { getGenreList } from "@/api/anime/getGenreList";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetGenreList = () => {

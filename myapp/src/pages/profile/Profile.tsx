@@ -1,9 +1,9 @@
 import style from './styles/Profile.module.css'
 import img from '../../././../public/images.png'
-import { useGetProfileInfo } from '@/hooks/useGetProfileInfo';
+import { useGetProfileInfo } from '@/hooks/auth/useGetProfileInfo';
 import AnimeCard from '@/components/shared/animeCard/AnimeCard';
 import MyButton from '@/components/ui/myButton/MyButton';
-import { useLogout } from '@/features/auth/hooks/useLogout';
+import { useLogout } from '@/hooks/auth/useLogout';
 
 
 const Profile = () => {
