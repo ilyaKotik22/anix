@@ -8,6 +8,7 @@ type User = {
 
 type AuthContextType = {
   user: User | null;
+  token: string
   login: (user: User, token: string) => void;
   logout: () => void;
 };
@@ -16,29 +17,33 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-
+  const [token, setToken] = useState<string>('')
   // при старте приложения читаем localStorage
   useEffect(() => {
-    const savedUser = localStorage.getItem("user");
+    const savedUser = localStorage.getItem("user") || '';
+    const savedToken = localStorage.getItem("authToken") || '';
     if (savedUser) {
       setUser(JSON.parse(savedUser));
+      setToken(savedToken)
     }
   }, []);
 
   const login = (user: User, token: string) => {
     setUser(user);
+    setToken(token)
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("authToken", token);
   };
 
   const logout = () => {
     setUser(null);
+    setToken('')
     localStorage.removeItem("user");
     localStorage.removeItem("authToken");
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, token, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

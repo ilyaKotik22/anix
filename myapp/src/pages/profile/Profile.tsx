@@ -4,18 +4,21 @@ import { useGetProfileInfo } from '@/hooks/auth/useGetProfileInfo';
 import AnimeCard from '@/components/shared/animeCard/AnimeCard';
 import MyButton from '@/components/ui/myButton/MyButton';
 import { useLogout } from '@/hooks/auth/useLogout';
+import AvatarUpload from './UploadAvatar';
+import { useAuth } from '@/app/context';
 
 
 const Profile = () => {
     const { data } = useGetProfileInfo()
     const {doLogout} = useLogout()
-
+    const {token} = useAuth()
     console.log(data)
     return (
         <main className={style.Profile}>
             <section className={`${style.sec}  ${style.imgSec}`}>
-                <img src={img} alt="" />
+                <img src={data?.image || img} alt="" />
                 <section className={style.buttonSec}>
+                    <AvatarUpload token={token}/>
                     <MyButton content='Добавить аватар'/>
                     <MyButton onClick={()=>doLogout()} content='Выйти'/>
                 </section>
