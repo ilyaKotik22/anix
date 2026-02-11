@@ -2,53 +2,35 @@ import style from "../styles/CommentsList.module.css";
 import img from "../../../../public/images.png";
 import CommentForm from "./CommentForm";
 import CommentItem from "./CommentItem";
-const CommentsList = () => {
+import type { User } from "@/types/auth";
+
+type CommentItem = {
+  animeId: string
+  content: string
+  createdAt: string
+  id: string
+  updatedAt: string
+  user: User
+
+}
+type CommentList = {
+  comments: CommentItem[]
+}
+const CommentsList = ({ comments }: CommentList) => {
+
   return (
     <section className={style.CommentsList}>
       <CommentForm />
       <div className={style.ListTitle}>Комментарии</div>
       <ul>
-        <CommentItem
-          name="sdaasd"
-          data="22.02.2022"
+        {comments && comments.map((comment:CommentItem) => <CommentItem
+          name={comment.user.name}
+          data={comment.createdAt}
           likes={2}
-          avatar={img}
-          content={
-            "Этот пост сделал мой день! 😍 Даже не думал, что встречу здесь что-то настолько годное. Автор, пиши ещё, это определённо заслуживает больше лайков!"
-          }
-        />
-        <CommentItem
-          name="sdaasd"
-          data="22.02.2022"
-          likes={2}
-          content={
-            "Этот пост сделал мой день! 😍 Даже не думал, что встречу здесь что-то настолько годное. Автор, пиши ещё, это определённо заслуживает больше лайков!"
-          }
-        />
-        <CommentItem
-          name="sdaasd"
-          data="22.02.2022"
-          likes={2}
-          content={
-            "Этот пост сделал мой день! 😍 Даже не думал, что встречу здесь что-то настолько годное. Автор, пиши ещё, это определённо заслуживает больше лайков!"
-          }
-        />
-        <CommentItem
-          name="sdaasd"
-          data="22.02.2022"
-          likes={2}
-          content={
-            "Этот пост сделал мой день! 😍 Даже не думал, что встречу здесь что-то настолько годное. Автор, пиши ещё, это определённо заслуживает больше лайков!"
-          }
-        />
-        <CommentItem
-          name="sdaasd"
-          data="22.02.2022"
-          likes={2}
-          content={
-            "Этот пост сделал мой день! 😍 Даже не думал, что встречу здесь что-то настолько годное. Автор, пиши ещё, это определённо заслуживает больше лайков!"
-          }
-        />
+          content={comment.content}
+          avatar={comment.user.image}
+        />)}
+       
       </ul>
     </section>
   );

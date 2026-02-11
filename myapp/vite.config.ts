@@ -1,24 +1,28 @@
-// vite.config.ts
-import { defineConfig } from "vite";
+/// <reference types="vitest" />
+import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
   plugins: [react()],
+  test: {
+    environment: "jsdom",
+    globals: true,
+  
+  },
   server: {
     proxy: {
-      // Все запросы на /consumet будут перенаправлены на api.consumet.org
       "/consumet": {
         target: "https://api.consumet.org",
-        changeOrigin: true, // меняет origin на целевой сервер
-        secure: false, // если SSL проблемы
-        rewrite: (path) => path.replace(/^\/consumet/, ""), // убираем префикс
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/consumet/, ""),
       },
     },
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"), // @ → /src
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 });

@@ -1,11 +1,13 @@
 import CommentsList from "@/features/comments/components/CommentsList";
 import PlayerBlock from "@/features/playerBlock/PlayerBlock";
 import { useGetAnimeInfo } from "@/hooks/anime/useGetAnimeInfo";
+import { useGetCommentsById } from "@/hooks/anime/useGetCommentsById";
 import AnimePageBody from "@/pages/animePage/AinmePageBody/AinmePageBody";
 
 const Anime = () => {
   const { data } = useGetAnimeInfo();
-
+  const {comments} = useGetCommentsById()
+  
   return (
     <main style={{ paddingTop: "130px" }}>
       <AnimePageBody
@@ -23,8 +25,8 @@ const Anime = () => {
         episodes={data?.episodes}
       />
       {data?.episodes && <PlayerBlock dataa={data?.episodes} />}
-
-      <CommentsList />
+      
+      <CommentsList comments={comments} />
     </main>
   );
 };

@@ -24,7 +24,7 @@ const CommentItem = ({
             <div className={style.data}>{data}</div>
           </section>
         </section>
-        <section className={style.likes}>
+        {/* <section className={style.likes}>
           <div className="">
             <ThumbsUp />
           </div>
@@ -32,7 +32,7 @@ const CommentItem = ({
           <div className="">
             <ThumbsDown />
           </div>
-        </section>
+        </section> */}
       </section>
       <section className={style.CommContent}>{content}</section>
     </section>
