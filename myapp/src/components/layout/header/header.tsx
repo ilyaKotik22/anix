@@ -2,10 +2,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import style from "./header.module.css";
 import SearchInput from "@/features/searchInput/SearcInput";
 import MyButton from "@/components/ui/myButton/MyButton";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DropdownMenu from "./dropdownMenu/DropdownMenu";
 import { useGetGenreList } from "@/hooks/anime/useGetGenreList";
-import { Settings } from "lucide-react";
+
 import { PATHNAMES } from "@/app/routes";
 
 const Header = () => {
@@ -25,7 +25,7 @@ const Header = () => {
   const { data } = useGetGenreList()
   const [vis, setVis] = useState<boolean>(false)
 
-  useEffect(() => { }, [location]);
+
  
   return (
     <>
@@ -34,8 +34,7 @@ const Header = () => {
           <SearchInput />
 
           <section className={style.rightBar}>
-            <div className=""><Settings style={{ minWidth: '45px' }} width={45} /></div>
-            {user !== '' ? <Link to={PATHNAMES.profile(JSON.parse(user).name) || ''}>{JSON.parse(user).name}</Link> : <MyButton onClick={() => navigate('/auth')} content="Войти" />}
+            {user !== '' ? <Link style={{color:'red'}} to={PATHNAMES.profile(JSON.parse(user).name) || ''}>{JSON.parse(user).name}</Link> : <MyButton onClick={() => navigate('/auth')} content="Войти" />}
           </section>
         </section>
         <section className={style.sec}>

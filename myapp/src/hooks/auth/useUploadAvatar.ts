@@ -1,40 +1,23 @@
+import { postAvatatUpload } from "@/api/auth/postAvatarUpload";
 import { useState } from "react";
 
-export const useUploadAvatar = () => {
+export const useUploadAvatar = (token:string) => {
+  const [preview, setPreview] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
 
-  const upload = async (file: File, token: string) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+  
+    setPreview(URL.createObjectURL(file));
+
+    const formData = new FormData();
+    formData.append("avatar", file);
+
     setLoading(true);
-    setError(null);
-
-    try {
-      const formData = new FormData();
-      formData.append("avatar", file);
-
-      const res = await fetch("http://127.0.0.1:3000/anime/animekai/avatar", {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-        body: formData,
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || "Ошибка загрузки");
-      }
-
-      setImageUrl(data.imageUrl);
-      setLoading(false);
-      return data.imageUrl;
-    } catch (err: any) {
-      setError(err.message);
-      setLoading(false);
-    }
+    postAvatatUpload(token,formData)
+    
   };
-
-  return { upload, loading, error, imageUrl };
+  return {preview,loading,handleFileChange}
 };

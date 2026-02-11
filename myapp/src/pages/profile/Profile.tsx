@@ -6,6 +6,7 @@ import MyButton from '@/components/ui/myButton/MyButton';
 import { useLogout } from '@/hooks/auth/useLogout';
 import AvatarUpload from './UploadAvatar';
 import { useAuth } from '@/app/context';
+import type { AnimeFav } from '@/types/anime';
 
 
 const Profile = () => {
@@ -19,7 +20,6 @@ const Profile = () => {
                 <img src={data?.image || img} alt="" />
                 <section className={style.buttonSec}>
                     <AvatarUpload token={token}/>
-                    <MyButton content='Добавить аватар'/>
                     <MyButton onClick={()=>doLogout()} content='Выйти'/>
                 </section>
                 
@@ -29,7 +29,7 @@ const Profile = () => {
                 <section className={style.info}><div className="">email</div>  {data?.email}</section>
                 <section className={style.info}>избранные </section>
                 <ul>
-                    {data?.favorites && data.favorites.map(el =>  <AnimeCard key={el.id}
+                    {data?.favorites && data.favorites.map((el:AnimeFav) =>  <AnimeCard key={el.id}
                         id={el.id}
                         title={el.title}
                         image={el.poster}
